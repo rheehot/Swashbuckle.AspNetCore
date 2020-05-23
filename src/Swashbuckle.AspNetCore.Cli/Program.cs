@@ -88,7 +88,10 @@ namespace Swashbuckle.AspNetCore.Cli
                     {
                         IOpenApiWriter writer;
                         if (namedArgs.ContainsKey("--yaml"))
-                            writer = new OpenApiYamlWriter(streamWriter);
+                            writer = new OpenApiYamlWriter(streamWriter)
+                            {
+                                UseLiteralStyle = true,
+                            };
                         else
                             writer = new OpenApiJsonWriter(streamWriter);
 
